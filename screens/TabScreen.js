@@ -8,7 +8,11 @@ export default class TabsExample extends Component {
   render() {
     return (
       <Container>
-        <Header hasTabs />
+        {/* <Header style={{backgroundColor:'black'}} hasTabs>
+          <body>
+          <title style={{color:'#ffffff'}}>News App</title>
+          </body>
+          </Header>  */}
         <Tabs>
           <Tab heading="Tab1">
             <Tab1 />
@@ -20,6 +24,8 @@ export default class TabsExample extends Component {
             <Tab3 />
           </Tab>
         </Tabs>
+        
+
       </Container>
     );
   }

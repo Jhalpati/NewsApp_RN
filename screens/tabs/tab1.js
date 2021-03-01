@@ -4,7 +4,6 @@ export default class Tab1 extends Component {
   render() {
     return (
       <Container>
-        <Header />
         <Content>
           <List>
             <ListItem thumbnail>
@@ -13,7 +12,7 @@ export default class Tab1 extends Component {
               </Left>
               <Body>
                 <Text>Joy</Text>
-                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
+                <Text note numberOfLines={2}>Its time to build a difference . .</Text>
               </Body>
               <Right>
                 <Button transparent>
@@ -21,14 +20,13 @@ export default class Tab1 extends Component {
                 </Button>
               </Right>
             </ListItem>
-
             <ListItem thumbnail>
               <Left>
                 <Thumbnail square source={{ uri: 'https://picsum.photos/200' }} />
               </Left>
               <Body>
                 <Text>Roy</Text>
-                <Text note numberOfLines={1}>Its time to build a train . .</Text>
+                <Text note numberOfLines={2}>Its time to build a train . .</Text>
               </Body>
               <Right>
                 <Button transparent>
