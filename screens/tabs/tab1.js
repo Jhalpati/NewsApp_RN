@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import { getArticles } from '../../service/news';
+
 export default class Tab1 extends Component {
+
+constructor(props){
+  super(props);
+
+  this.state = {
+    isLoading: true,
+    data: null
+  }
+}
+
+componentDidMount(){
+  getArticles().then(data=>{
+    this.setState({
+      isLoading: false,
+      data: data
+    });
+  })
+
+}
+
   render() {
+    console.log(this.state.data);
     return (
       <Container>
         <Content>
