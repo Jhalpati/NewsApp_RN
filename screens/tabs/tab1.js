@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
-import { getArticles } from '../../service/news';
+import  getArticles  from '../../service/news.js';
+import  DataItems from '../../components/dataItems.js';
+import { Alert } from 'react-native';
 
 export default class Tab1 extends Component {
 
@@ -14,12 +16,16 @@ constructor(props){
 }
 
 componentDidMount(){
-  getArticles().then(data=>{
+  getArticles().then(data => {
     this.setState({
       isLoading: false,
-      data: data
+      data: data,
     });
-  })
+  }, error => {
+    Alert.alert('Error', 'Something went wrong');
+  }
+  
+  )
 
 }
 
@@ -28,36 +34,13 @@ componentDidMount(){
     return (
       <Container>
         <Content>
-          <List>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{ uri: 'https://picsum.photos/200' }} />
-              </Left>
-              <Body>
-                <Text>Joy</Text>
-                <Text note numberOfLines={2}>Its time to build a difference . .</Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{ uri: 'https://picsum.photos/200' }} />
-              </Left>
-              <Body>
-                <Text>Roy</Text>
-                <Text note numberOfLines={2}>Its time to build a train . .</Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-          </List>
+          <List 
+          dataArray={this.state.data}
+          renderRow={(item) => {
+            return <DataItems data={item} />
+          } } />
+
+
         </Content>
       </Container>
     );
