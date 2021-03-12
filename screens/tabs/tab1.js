@@ -16,7 +16,7 @@ constructor(props){
 }
 
 componentDidMount(){
-  getArticles().then(data => {
+  getArticles('sports').then(data => {
     this.setState({
       isLoading: false,
       data: data,
@@ -36,7 +36,7 @@ componentDidMount(){
 
       <View>
         <ActivityIndicator animating={this.state.isLoading}/>
-        <Text style={{marginTop:10}} >PLEASE WAIT</Text>
+        <Text style={{marginTop:10, textAlign: 'center'}} >PLEASE WAIT</Text>
       </View>
     ) : <List 
     dataArray={this.state.data}
